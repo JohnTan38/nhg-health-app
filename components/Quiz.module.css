@@ -1,0 +1,13 @@
+.quiz { display: flex; flex-direction: column; gap: 18px; }
+.question { font-size: var(--type-body); }
+.options { display: flex; flex-wrap: wrap; gap: 14px; }
+.option {
+  min-width: var(--tap-min); min-height: var(--tap-min);
+  padding: 12px 28px; cursor: pointer;
+  font: inherit; font-family: var(--font-heading); font-size: var(--type-subtitle);
+  background: transparent; color: var(--ink); border: 2px solid var(--steel-mid);
+}
+.option:hover { border-color: var(--care); }
+.feedback { min-height: 2.4em; font-size: var(--type-small); }
+.feedback[data-result='correct'] { color: var(--care-text); font-weight: 600; }
+.feedback[data-result='retry'] { color: var(--ink-soft); }
