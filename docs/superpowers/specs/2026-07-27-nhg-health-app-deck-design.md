@@ -212,7 +212,7 @@ Type scale, both breakpoints, via tokens:
 | `--type-title` | 34 px | `clamp(44px, 4vw, 76px)` |
 | `--type-subtitle` | 26 px | `clamp(30px, 2.3vw, 44px)` |
 | `--type-body` | 20 px | `clamp(20px, 1.8vw, 34px)` |
-| `--type-small` | 18 px | `clamp(17px, 1.45vw, 28px)` |
+| `--type-small` | 18 px | `clamp(18px, 1.45vw, 28px)` |
 
 18 px is the hard floor anywhere in the application.
 

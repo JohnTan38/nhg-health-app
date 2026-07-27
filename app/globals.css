@@ -28,7 +28,7 @@
     --type-title: clamp(44px, 4vw, 76px);
     --type-subtitle: clamp(30px, 2.3vw, 44px);
     --type-body: clamp(20px, 1.8vw, 34px);
-    --type-small: clamp(17px, 1.45vw, 28px);
+    --type-small: clamp(18px, 1.45vw, 28px);
   }
 }
 
