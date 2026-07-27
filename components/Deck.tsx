@@ -102,6 +102,10 @@ export function Deck({ slides }: { slides: SlideData[] }) {
       const tag = (e.target as HTMLElement | null)?.tagName ?? '';
       if (TEXT_ENTRY_TAGS.test(tag)) return;
 
+      // Never hijack browser/OS chords: Ctrl/Cmd+P is print, Ctrl/Cmd+V is
+      // paste, and neither should be swallowed into a bare-letter shortcut.
+      if (e.ctrlKey || e.metaKey || e.altKey) return;
+
       const key = e.key.length === 1 ? e.key.toLowerCase() : e.key;
 
       // The deck-wide toggles stay available wherever focus sits: someone who

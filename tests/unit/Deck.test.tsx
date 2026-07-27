@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { describe, expect, it } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import { Deck } from '@/components/Deck';
 import { SLIDES } from '@/content/slides';
 
@@ -87,6 +87,41 @@ describe('Deck', () => {
     await user.keyboard('p');
 
     expect(screen.getByRole('button', { name: /pause slideshow/i })).toBeInTheDocument();
+  });
+
+  // Ctrl/Cmd+P is print and Ctrl/Cmd+V is paste; the deck must not steal
+  // either chord just because the bare letter is one of its shortcuts.
+  describe('does not hijack browser chords sharing a letter with a shortcut', () => {
+    afterEach(() => vi.unstubAllGlobals());
+
+    it('leaves Ctrl+P for the browser', async () => {
+      const user = userEvent.setup();
+      render(<Deck slides={SLIDES} />);
+
+      await user.keyboard('{Control>}p{/Control}');
+      expect(screen.getByRole('button', { name: /play slideshow/i })).toBeInTheDocument();
+    });
+
+    it('leaves Ctrl+V for the browser', async () => {
+      vi.stubGlobal('speechSynthesis', { speak: vi.fn(), cancel: vi.fn(), getVoices: () => [] });
+      vi.stubGlobal(
+        'SpeechSynthesisUtterance',
+        class {
+          text: string;
+          constructor(text: string) {
+            this.text = text;
+          }
+        },
+      );
+      const user = userEvent.setup();
+      render(<Deck slides={SLIDES} />);
+
+      await user.keyboard('{Control>}v{/Control}');
+      expect(screen.getByRole('button', { name: /read slides aloud/i })).toHaveAttribute(
+        'aria-pressed',
+        'false',
+      );
+    });
   });
 
   it('jumps to the last slide with End and back with Home', async () => {
