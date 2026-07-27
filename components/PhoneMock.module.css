@@ -29,7 +29,9 @@
   display: block; text-align: center; padding: 12px;
   border: 1px solid var(--ink-soft); color: var(--ink);
 }
-.button[data-primary='true'] { background: var(--care); border-color: var(--care); color: #fff; }
+/* White on --care is only 3.68:1 — short of the 4.5:1 this label needs at its
+   size. --care-text is the palette's darker orange and reaches 5.34:1. */
+.button[data-primary='true'] { background: var(--care-text); border-color: var(--care-text); color: #fff; }
 
 .status { align-self: flex-start; padding: 6px 12px; background: var(--steel-lt); color: var(--steel900); }
 
