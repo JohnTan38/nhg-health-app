@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState, useSyncExternalStore } from 'react';
 import { createSpeaker, isSpeechSupported, type SpeechOutcome } from '@/lib/speech';
 
 export interface UseSpeech {
@@ -10,11 +10,30 @@ export interface UseSpeech {
   cancel: () => void;
 }
 
+// The app builds fully static, so this client component still gets one
+// server-rendered pass before hydration. `speechSynthesis` doesn't exist in
+// Node, so a plain `isSpeechSupported()` read during render would say `false`
+// on the server and (usually) `true` on the client's first render — a
+// hydration mismatch. `useSyncExternalStore` with a server snapshot avoids
+// that by making the server/first-client-render value explicit and
+// consistent; the API's presence never changes over a session, so `subscribe`
+// has nothing to listen for and is a no-op.
+function subscribe(): () => void {
+  return () => {};
+}
+
+function getSnapshot(): boolean {
+  return isSpeechSupported();
+}
+
+function getServerSnapshot(): boolean {
+  return false;
+}
+
 export function useSpeech(): UseSpeech {
   const speakerRef = useRef<ReturnType<typeof createSpeaker> | null>(null);
   const [speaking, setSpeaking] = useState(false);
-  // Feature detection is a pure, static read of a browser global — no effect needed.
-  const supported = isSpeechSupported();
+  const supported = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
 
   useEffect(() => {
     speakerRef.current = createSpeaker();
