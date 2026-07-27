@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="90c19e0e-317c-47ae-879c-bf060cead194"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="omelette-owns-print" content="1">
+<style>/* Industry — design-system tokens and component classes. This file is the source of truth for the system's look; retune it here and see readme.md. */
+/* vietnamese */
+@font-face {
+  font-family: 'Barlow';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("1b6b7481-d7c8-4f30-ba86-3f7313fef2da") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Barlow';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("f988d5a7-4a77-41db-9335-cfe73b426a74") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Barlow';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("56ebbbf4-fc50-497a-a655-b10435a77b92") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Barlow';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("61ad78b9-0b88-4be8-8b8d-862022a0a7f2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Barlow';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("6367ed82-0486-4878-833a-e376e2aa27ed") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Barlow';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("e83b8b5b-8cc4-48e2-8c54-35b71d9f4fed") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Barlow';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("c01c980f-b8d4-4cb5-97e9-ea616eedd18f") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Barlow';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("695a4400-c42c-471b-9657-72f0e67356d8") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Barlow';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("5aefe8f7-349e-4878-a476-4aa0ce632419") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Barlow Condensed';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("24a65ed6-ab11-46bd-8e98-a1bff149fd8b") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Barlow Condensed';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("81172f23-3926-4ea8-9c3a-1d3c50a5198b") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Barlow Condensed';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("a6ce3c2a-12ed-4a00-b7fb-7ef02edc3577") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Barlow Condensed';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("59fb2dc5-71f8-47b6-ab36-ec9506d672de") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Barlow Condensed';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("67577295-92bc-4eb7-b592-42df5438f24f") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Barlow Condensed';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("218a17d4-acaf-4054-bd20-90fd3b84f523") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+
+:root {
+  --color-bg: #f2f2f3;
+  --color-surface: #e9e9ea;
+  --color-text: #1d1f20;
+  --color-accent: #5980a6;
+  --color-accent-2: #728fab;
+  --color-divider: color-mix(in srgb, #1d1f20 16%, transparent);
+
+  /* Tonal ramps — generated in OKLCH on one shared lightness scale, so the
+     same step of any role matches the others in visual value. */
+  --color-neutral-100: #f5f5f8;
+  --color-neutral-200: #e7e7ea;
+  --color-neutral-300: #d4d4d7;
+  --color-neutral-400: #b7b7ba;
+  --color-neutral-500: #98989b;
+  --color-neutral-600: #7a7a7d;
+  --color-neutral-700: #5d5d60;
+  --color-neutral-800: #424244;
+  --color-neutral-900: #2b2b2d;
+
+  --color-accent-100: #eef6ff;
+  --color-accent-200: #d6ebff;
+  --color-accent-300: #b5d9fd;
+  --color-accent-400: #94bce3;
+  --color-accent-500: #749dc4;
+  --color-accent-600: #597ea3;
+  --color-accent-700: #416180;
+  --color-accent-800: #2c455d;
+  --color-accent-900: #1d2d3d;
+
+  --color-accent-2-100: #eef6ff;
+  --color-accent-2-200: #d6ebff;
+  --color-accent-2-300: #bdd8f2;
+  --color-accent-2-400: #9ebbd8;
+  --color-accent-2-500: #7e9cb8;
+  --color-accent-2-600: #627d98;
+  --color-accent-2-700: #486077;
+  --color-accent-2-800: #314457;
+  --color-accent-2-900: #1f2d3a;
+
+  --font-heading: "Barlow Condensed", system-ui, sans-serif;
+  --font-heading-weight: 600;
+  --font-body: "Barlow", system-ui, sans-serif;
+
+  --space-1: 3.4px;
+  --space-2: 6.8px;
+  --space-3: 10.2px;
+  --space-4: 13.6px;
+  --space-6: 20.4px;
+  --space-8: 27.2px;
+
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 7px;
+
+  /* Elevation — derived from the ground: soft ink-tinted shadows on a
+     light theme, a hairline edge + ambient darkness on a dark one. */
+  --shadow-sm: 0 1px 2px color-mix(in srgb, #2b2b2d 14%, transparent);
+  --shadow-md: 0 3px 10px color-mix(in srgb, #2b2b2d 16%, transparent);
+  --shadow-lg: 0 12px 32px color-mix(in srgb, #2b2b2d 22%, transparent);
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+}
+h1, h2, h3, h4 { font-family: var(--font-heading); font-weight: var(--font-heading-weight); }
+
+.blueprint {
+  position: relative;
+  border: 1px solid var(--color-divider);
+  border-radius: 0;
+}
+/* The overlay image treatments (halftone, duotone) clip their overlay
+   (overflow:hidden); a blueprint wrapper draws its registration marks
+   outside the box, so when both classes share a wrapper the frame must
+   win. */
+.blueprint.halftone, .blueprint.plate, .blueprint.duotone { overflow: visible; }
+.blueprint > .corner {
+  position: absolute; width: 11px; height: 11px;
+  color: color-mix(in srgb, var(--color-text) 55%, transparent);
+}
+.blueprint > .corner::before, .blueprint > .corner::after {
+  content: ""; position: absolute; background: currentColor;
+}
+.blueprint > .corner::before { left: 5px; top: 0; width: 1px; height: 100%; }
+.blueprint > .corner::after  { top: 5px; left: 0; width: 100%; height: 1px; }
+.blueprint > .corner.tl { top: -6px; left: -6px; }
+.blueprint > .corner.tr { top: -6px; right: -6px; }
+.blueprint > .corner.bl { bottom: -6px; left: -6px; }
+.blueprint > .corner.br { bottom: -6px; right: -6px; }
+
+.duotone{position:relative;overflow:hidden}
+.duotone::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:var(--color-accent);mix-blend-mode:color}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   Components — built with the tokens above. Plain CSS
+   on plain HTML: no JavaScript, no build step. Each class is documented in
+   readme.md and demonstrated in foundations/ and components/.
+   ══════════════════════════════════════════════════════════════════════ */
+
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; font-size: 15px; line-height: 1.55; font-weight: 400; }
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading); font-weight: var(--font-heading-weight);
+  line-height: 1.12; letter-spacing: -0.015em; margin: 0 0 var(--space-2);
+}
+h1 { font-size: 42px; }
+h2 { font-size: 32px; }
+h3 { font-size: 25px; }
+h4 { font-size: 20px; }
+h5 { font-size: 16px; }
+h6 { font-size: 13px; }
+h6 { letter-spacing: 0.08em; text-transform: uppercase; }
+p { margin: 0 0 var(--space-3); }
+a { color: var(--color-accent); text-underline-offset: 3px; }
+img { display: block; max-width: 100%; }
+figure { margin: 0; }
+figcaption {
+  font-size: 11px; margin-top: var(--space-1);
+  color: color-mix(in srgb, var(--color-text) 55%, transparent);
+}
+.text-muted { color: color-mix(in srgb, var(--color-text) 55%, transparent); }
+:focus { outline: none; }
+:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; }
+::selection { background: color-mix(in srgb, var(--color-accent) 30%, transparent); }
+
+/* — rules — */
+.hr {
+  height: 1px; border: 0; margin: var(--space-4) 0;
+  background: var(--color-divider);
+}
+
+/* — buttons — */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  cursor: pointer; text-decoration: none;
+  font-family: var(--font-heading); font-weight: var(--font-heading-weight);
+  font-size: 14px; line-height: 1.2; color: var(--color-text); /* matches the .input's 14px —
+     the pair sits side by side in sign-up rows */
+  background: transparent; border: 1px solid transparent;
+  padding: var(--space-2) calc(var(--space-3) * 1.2);
+  border-radius: var(--radius-md);
+}
+.btn svg { display: block; }
+.btn:disabled { opacity: 0.45; cursor: not-allowed; }
+.btn-primary { background: var(--color-accent); color: var(--color-bg); }
+.btn-primary:hover { background: var(--color-accent-600); }
+.btn-primary:active { background: var(--color-accent-700); }
+.btn-secondary { border-color: var(--color-divider); }
+.btn-secondary:hover { background: color-mix(in srgb, var(--color-text) 7%, transparent); }
+.btn-secondary:active { background: color-mix(in srgb, var(--color-text) 14%, transparent); }
+.btn-ghost { color: var(--color-accent); padding-inline: var(--space-1); }
+.btn-ghost:hover { background: color-mix(in srgb, var(--color-accent) 10%, transparent); }
+.btn-ghost:active { background: color-mix(in srgb, var(--color-accent) 18%, transparent); }
+.btn-icon { width: 36px; height: 36px; padding: 0; }
+.btn-block { width: 100%; margin-top: var(--space-2); }
+
+/* — forms — */
+.field > label {
+  display: block; font-size: 12px; margin-bottom: 5px;
+  color: color-mix(in srgb, var(--color-text) 70%, transparent);
+}
+.input {
+  width: 100%; min-height: 36px; padding: 6px 10px; font: inherit;
+  font-size: 14px; color: var(--color-text); caret-color: var(--color-accent);
+  background: var(--color-surface);
+  border: 1px solid var(--color-divider); border-radius: var(--radius-md);
+}
+.input:hover { border-color: color-mix(in srgb, var(--color-text) 45%, transparent); }
+.input:focus-visible { border-color: var(--color-accent); outline-offset: 0; }
+textarea.input { min-height: 90px; resize: vertical; }
+.radio { display: inline-flex; align-items: center; gap: 8px; cursor: pointer; font-size: 14px; }
+.radio input, .seg-opt input {
+  position: absolute; opacity: 0; width: 0; height: 0; pointer-events: none;
+}
+.radio .dot {
+  width: 16px; height: 16px; flex: none; border-radius: 50%;
+  border: 1.5px solid var(--color-divider);
+}
+.radio:hover .dot { border-color: var(--color-accent); }
+.radio input:checked + .dot {
+  border-color: var(--color-accent); background: var(--color-accent);
+  box-shadow: inset 0 0 0 4px var(--color-bg);
+}
+.radio input:focus-visible + .dot { outline: 2px solid var(--color-accent); outline-offset: 2px; }
+.seg {
+  display: inline-flex; overflow: hidden;
+  border: 1px solid var(--color-divider); border-radius: var(--radius-md);
+}
+.seg-opt {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 7px 12px; font-size: 13px; cursor: pointer;
+}
+.seg-opt + .seg-opt { border-left: 1px solid var(--color-divider); }
+.seg-opt:has(input:checked) { background: var(--color-accent); color: var(--color-bg); }
+.seg-opt:not(:has(input:checked)):hover { background: color-mix(in srgb, var(--color-text) 7%, transparent); }
+.seg-opt:has(input:focus-visible) { outline: 2px solid var(--color-accent); outline-offset: -2px; }
+
+/* — cards — */
+.card {
+  display: flex; flex-direction: column; gap: var(--space-2);
+  padding: var(--space-3); border-radius: var(--radius-md); background: var(--color-surface);
+}
+.card-kicker { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-accent); }
+.card-title {
+  font-family: var(--font-heading); font-weight: var(--font-heading-weight);
+  font-size: 17px; line-height: 1.2;
+}
+.card-body { margin: 0; font-size: 13px; opacity: 0.8; flex: 1; }
+.card-meta {
+  display: flex; align-items: center; gap: 6px; font-size: 11px;
+  color: color-mix(in srgb, var(--color-text) 50%, transparent);
+}
+.elev-sm { box-shadow: var(--shadow-sm); }
+.elev-md { box-shadow: var(--shadow-md); }
+.elev-lg { box-shadow: var(--shadow-lg); }
+
+/* — tags — */
+.tag {
+  display: inline-flex; align-items: center; font-size: 11px;
+  letter-spacing: 0.02em; padding: 3px 10px;
+  border-radius: calc(var(--radius-md) * 0.75);
+}
+.tag-accent { background: var(--color-accent-100); color: var(--color-accent-800); }
+.tag-accent-2 { background: var(--color-accent-2-100); color: var(--color-accent-2-800); }
+.tag-neutral { background: var(--color-neutral-100); color: var(--color-neutral-800); }
+.tag-outline { border: 1px solid var(--color-accent); color: var(--color-accent); }
+
+/* — navigation — */
+.nav {
+  display: flex; align-items: center; gap: var(--space-4);
+  padding: var(--space-3) var(--space-4);
+  border-bottom: none;
+}
+.nav-brand {
+  font-family: var(--font-heading); font-weight: var(--font-heading-weight);
+  font-size: 18px; margin-right: auto;
+}
+.nav a { color: inherit; text-decoration: none; font-size: 14px; }
+.nav a:hover, .nav a[aria-current='page'] { color: var(--color-accent); }
+
+/* — tables — */
+.table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.table th {
+  text-align: left; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+  color: color-mix(in srgb, var(--color-text) 60%, transparent);
+  padding: var(--space-2); border-bottom: 1px solid var(--color-divider);
+}
+.table td {
+  padding: var(--space-2);
+  border-bottom: 1px solid color-mix(in srgb, var(--color-text) 8%, transparent);
+}
+.table tbody tr:hover { background: color-mix(in srgb, var(--color-text) 4%, transparent); }
+
+/* — dialog — */
+.dialog-backdrop {
+  position: fixed; inset: 0; display: grid; place-items: center;
+  padding: var(--space-4);
+  background: color-mix(in srgb, var(--color-neutral-900) 50%, transparent);
+}
+.dialog {
+  width: min(440px, 100%); display: flex; flex-direction: column; gap: var(--space-3);
+  padding: var(--space-4); border-radius: var(--radius-lg);
+  background: var(--color-surface); box-shadow: var(--shadow-lg);
+}
+.dialog-title {
+  font-family: var(--font-heading); font-weight: var(--font-heading-weight);
+  font-size: 20px;
+}
+.dialog-body { font-size: 14px; opacity: 0.85; }
+.dialog-actions { display: flex; justify-content: flex-end; gap: var(--space-2); margin-top: var(--space-2); }
+
+/* — blueprint frame: components are wireframe objects (see .blueprint
+     and .corner above) — square, transparent, hairline-bordered — */
+.card, .btn, .input, .tag, .seg, .dialog { border-radius: 0; }
+.card, .dialog { background: transparent; border: 1px solid var(--color-divider); }
+.btn { border: 1px solid var(--color-divider); }
+.btn-primary { border-color: var(--color-accent); }
+.btn-ghost { border-color: transparent; }
+
+</style>
+<script src="cd786ba0-1467-4828-bdfe-05705300abb6"></script>
+<script src="fd0adbec-b4a2-47c6-b99f-833e4b2a622d"></script>
+<style>
+:root{--type-title:76px;--type-subtitle:44px;--type-body:34px;--type-small:28px;--pad-x:100px;--pad-top:88px;--pad-bottom:72px;--care:#E4572E;--steel:#5980a6;--ink:#1d1f20;--paper:#f2f2f3;--steel900:#1d2d3d}
+body{margin:0}
+a{color:#416180}
+a:hover{color:#E4572E}
+</style>
+</helmet>
+
+<x-import component-from-global-scope="deck-stage" from="cb411608-0256-48f6-a1e8-3b2096ae883e#/deck-stage.js" width="1920" height="1080" hint-size="100%,100%">
+
+<section data-label="Cover" data-screen-label="01" data-speaker-notes="Welcome everyone. Today we learn the NHG Health App together — one step at a time. No rush." style="background:#1d2d3d;color:#f2f2f3;font-family:Barlow,sans-serif;padding:88px 100px 72px;display:grid;grid-template-columns:1.35fr 1fr;gap:80px;align-items:center">
+<div style="display:flex;flex-direction:column;gap:36px">
+<div style="display:flex;align-items:center;gap:20px">
+<div style="width:64px;height:4px;background:#E4572E"></div>
+<div style="font-family:'Barlow Condensed',sans-serif;font-size:30px;letter-spacing:.22em;text-transform:uppercase;color:#94bce3">Digital Education Series</div>
+</div>
+<h1 style="margin:0;font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:132px;line-height:.94;letter-spacing:-.02em">NHG Health App</h1>
+<div style="font-size:46px;line-height:1.3;max-width:900px;color:#d6ebff">A simple, step-by-step guide for seniors</div>
+<div style="height:1px;background:rgba(214,235,255,.35);max-width:900px"></div>
+<div style="font-size:34px;line-height:1.45;max-width:880px;color:#bdd8f2">Book your clinic appointment, join the queue, check in on arrival, and keep track of your medicines — all from your own phone.</div>
+</div>
+<div class="blueprint" style="border-color:rgba(214,235,255,.45);padding:48px;display:flex;flex-direction:column;gap:32px;align-items:center">
+<i class="corner tl" style="color:#94bce3"></i><i class="corner tr" style="color:#94bce3"></i><i class="corner bl" style="color:#94bce3"></i><i class="corner br" style="color:#94bce3"></i>
+<div style="font-family:'Barlow Condensed',sans-serif;font-size:26px;letter-spacing:.2em;text-transform:uppercase;color:#94bce3">Presented by</div>
+<image-slot id="care-corner-logo" shape="rect" fit="contain" style="width:420px;height:200px;background:#f2f2f3" placeholder="Drop Care Corner logo"></image-slot>
+<div style="font-size:30px;text-align:center;line-height:1.35;color:#d6ebff">Care Corner Singapore<br>Active Ageing &amp; Senior Services</div>
+</div>
+</section>
+
+<section data-label="What the app does" data-screen-label="02" data-speaker-notes="Five things only. Tell them we will practise each one today. Reassure: they do not need to remember everything." style="background:#f2f2f3;color:#1d1f20;font-family:Barlow,sans-serif;padding:88px 100px 72px;display:flex;flex-direction:column">
+<div style="font-family:'Barlow Condensed',sans-serif;font-size:28px;letter-spacing:.22em;text-transform:uppercase;color:#416180;margin-bottom:14px">Overview</div>
+<h2 style="margin:0 0 20px;font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:76px;line-height:1.02">Five things the app does for you</h2>
+<div style="font-size:34px;color:#424244;max-width:1180px;margin-bottom:56px">Everything today happens in the app. You will need your phone and your Singpass.</div>
+<div style="display:grid;grid-template-columns:repeat(5,1fr);gap:34px;flex:1">
+<div class="blueprint" style="padding:34px 28px;display:flex;flex-direction:column;gap:18px;background:transparent">
+<i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+<div style="font-family:'Barlow Condensed',sans-serif;font-size:64px;line-height:1;color:#E4572E">01</div>
+<div style="font-family:'Barlow Condensed',sans-serif;font-size:38px;line-height:1.1">Book an appointment</div>
+<div style="font-size:27px;line-height:1.4;color:#424244">Choose your clinic, reason and time slot.</div>
+</div>
+<div class="blueprint" style="padding:34px 28px;display:flex;flex-direction:column;gap:18px;background:transparent">
+<i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+<div style="font-family:'Barlow Condensed',sans-serif;font-size:64px;line-height:1;color:#E4572E">02</div>
+<div style="font-family:'Barlow Condensed',sans-serif;font-size:38px;line-height:1.1">Register your queue</div>
+<div style="font-size:27px;line-height:1.4;color:#424244">Join the queue from home and see your itinerary.</div>
+</div>
+<div class="blueprint" style="padding:34px 28px;display:flex;flex-direction:column;gap:18px;background:transparent">
+<i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+<div style="font-family:'Barlow Condensed',sans-serif;font-size:64px;line-height:1;color:#E4572E">03</div>
+<div style="font-family:'Barlow Condensed',sans-serif;font-size:38px;line-height:1.1">Say “I have arrived”</div>
+<div style="font-size:27px;line-height:1.4;color:#424244">Check in at the clinic without queueing at a counter.</div>
+</div>
+<div class="blueprint" style="padding:34px 28px;display:flex;flex-direction:column;gap:18px;background:transparent">
+<i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+<div style="font-family:'Barlow Condensed',sans-serif;font-size:64px;line-height:1;color:#E4572E">04</div>
+<div style="font-family:'Barlow Condensed',sans-serif;font-size:38px;line-height:1.1">See your health info</div>
+<div style="font-size:27px;line-height:1.4;color:#424244">Allergies, health issues and medicines in one place.</div>
+</div>
+<div class="blueprint" style="padding:34px 28px;display:flex;flex-direction:column;gap:18px;background:transparent">
+<i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+<div style="font-family:'Barlow Condensed',sans-serif;font-size:64px;line-height:1;color:#E4572E">05</div>
+<div style="font-family:'Barlow Condensed',sans-serif;font-size:38px;line-height:1.1">Request a refill</div>
+<div style="font-size:27px;line-height:1.4;color:#424244">Ask for more medicine and have it delivered.</div>
+</div>
+</div>
+</section>
+
+<section data-label="Getting started" data-screen-label="03" data-speaker-notes="Walk the room through the QR code first. Pause after each step and let everyone catch up before moving on." style="background:#f2f2f3;color:#1d1f20;font-family:Barlow,sans-serif;padding:88px 100px 72px;display:flex;flex-direction:column">
+<div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:48px">
+<div>
+<div style="font-family:'Barlow Condensed',sans-serif;font-size:28px;letter-spacing:.22em;text-transform:uppercase;color:#416180;margin-bottom:14px">Set up · Once only</div>
+<h2 style="margin:0;font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:76px;line-height:1.02">Getting started with the app</h2>
+</div>
+<div style="font-size:30px;color:#424244;text-align:right;line-height:1.4">Guide page 5<br>About 5 minutes</div>
+</div>
+<div style="display:grid;grid-template-columns:repeat(5,1fr);gap:30px;flex:1">
+<div style="display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;align-items:center;gap:16px"><div style="width:56px;height:56px;background:#E4572E;color:#fff;font-family:'Barlow Condensed',sans-serif;font-size:34px;display:flex;align-items:center;justify-content:center">1</div><div style="height:1px;background:#d4d4d7;flex:1"></div></div>
+<div class="blueprint" style="background:#fff;padding:26px 20px;display:flex;flex-direction:column;gap:16px;flex:1">
+<i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+<div style="width:100%;aspect-ratio:1;border:2px solid #1d1f20;display:flex;align-items:center;justify-content:center;font-family:'Barlow Condensed',sans-serif;font-size:30px;color:#5d5d60;text-align:center;line-height:1.2">QR<br>CODE</div>
+<div style="margin-top:auto;font-size:28px;line-height:1.35">Scan the QR code to download <b>NHG Health</b> from Google Play or the App Store.</div>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;align-items:center;gap:16px"><div style="width:56px;height:56px;background:#E4572E;color:#fff;font-family:'Barlow Condensed',sans-serif;font-size:34px;display:flex;align-items:center;justify-content:center">2</div><div style="height:1px;background:#d4d4d7;flex:1"></div></div>
+<div class="blueprint" style="background:#fff;padding:26px 20px;display:flex;flex-direction:column;gap:16px;flex:1">
+<i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+<div style="display:flex;flex-direction:column;gap:12px">
+<div style="border:1px solid #b7b7ba;padding:12px 16px;font-size:26px">English</div>
+<div style="border:2px solid #E4572E;padding:12px 16px;font-size:26px;background:#fdf0eb">中文</div>
+<div style="border:1px solid #b7b7ba;padding:12px 16px;font-size:26px">Melayu</div>
+</div>
+<div style="margin-top:auto;font-size:28px;line-height:1.35">Tap your preferred <b>language</b>, then Confirm.</div>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;align-items:center;gap:16px"><div style="width:56px;height:56px;background:#E4572E;color:#fff;font-family:'Barlow Condensed',sans-serif;font-size:34px;display:flex;align-items:center;justify-content:center">3</div><div style="height:1px;background:#d4d4d7;flex:1"></div></div>
+<div class="blueprint" style="background:#fff;padding:26px 20px;display:flex;flex-direction:column;gap:16px;flex:1">
+<i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+<div style="flex:1;display:flex;align-items:center;justify-content:center"><div style="background:#5980a6;color:#fff;padding:18px 40px;font-family:'Barlow Condensed',sans-serif;font-size:34px">Start</div></div>
+<div style="margin-top:auto;font-size:28px;line-height:1.35">Tap the big <b>Start</b> button.</div>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;align-items:center;gap:16px"><div style="width:56px;height:56px;background:#E4572E;color:#fff;font-family:'Barlow Condensed',sans-serif;font-size:34px;display:flex;align-items:center;justify-content:center">4</div><div style="height:1px;background:#d4d4d7;flex:1"></div></div>
+<div class="blueprint" style="background:#fff;padding:26px 20px;display:flex;flex-direction:column;gap:16px;flex:1">
+<i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+<div style="display:flex;flex-direction:column;gap:10px">
+<div style="height:10px;background:#e7e7ea"></div><div style="height:10px;background:#e7e7ea"></div><div style="height:10px;background:#e7e7ea;width:70%"></div>
+<div style="display:flex;align-items:center;gap:12px;margin-top:8px"><div style="width:32px;height:32px;border:2px solid #E4572E;background:#E4572E;color:#fff;font-size:24px;display:flex;align-items:center;justify-content:center">✓</div><div style="font-size:26px">I accept</div></div>
+</div>
+<div style="margin-top:auto;font-size:28px;line-height:1.35">Read the Terms of Use, tick the box and tap <b>I accept</b>.</div>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;align-items:center;gap:16px"><div style="width:56px;height:56px;background:#E4572E;color:#fff;font-family:'Barlow Condensed',sans-serif;font-size:34px;display:flex;align-items:center;justify-content:center">5</div><div style="height:1px;background:#d4d4d7;flex:1"></div></div>
+<div class="blueprint" style="background:#fff;padding:26px 20px;display:flex;flex-direction:column;gap:16px;flex:1">
+<i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+<div style="display:flex;flex-direction:column;gap:12px">
+<div style="border:1px solid #b7b7ba;padding:12px 16px;font-size:26px;color:#7a7a7d">Name</div>
+<div style="border:1px solid #b7b7ba;padding:12px 16px;font-size:26px;color:#7a7a7d">Mobile number</div>
+<div style="background:#5980a6;color:#fff;padding:14px 16px;font-size:26px;text-align:center;font-family:'Barlow Condensed',sans-serif">Finish Setup</div>
+</div>
+<div style="margin-top:auto;font-size:28px;line-height:1.35">Fill in your details and tap <b>Finish Setup</b>. Done!</div>
+</div>
+</div>
+</div>
+</section>
+
+<section data-label="Book appointment" data-screen-label="04" data-speaker-notes="Only NHG Polyclinics and National Skin Centre can be booked directly in the app. Everything else opens a request form." style="background:#f2f2f3;color:#1d1f20;font-family:Barlow,sans-serif;padding:88px 100px 72px;display:grid;grid-template-columns:520px 1fr;gap:80px">
+<div style="display:flex;flex-direction:column">
+<div style="font-family:'Barlow Condensed',sans-serif;font-size:28px;letter-spacing:.22em;text-transform:uppercase;color:#416180;margin-bottom:14px">Appointments · Guide page 16</div>
+<h2 style="margin:0 0 28px;font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:76px;line-height:1.02">Booking an appointment</h2>
+<div style="font-size:34px;line-height:1.45;color:#424244;margin-bottom:auto">Book your own polyclinic visit in four taps. You will log in with <b>Singpass</b>.</div>
+<div class="blueprint" style="border-color:#E4572E;background:#fdf0eb;padding:28px 30px;display:flex;flex-direction:column;gap:10px">
+<i class="corner tl" style="color:#E4572E"></i><i class="corner tr" style="color:#E4572E"></i><i class="corner bl" style="color:#E4572E"></i><i class="corner br" style="color:#E4572E"></i>
+<div style="font-family:'Barlow Condensed',sans-serif;font-size:30px;letter-spacing:.16em;text-transform:uppercase;color:#E4572E">Good to know</div>
+<div style="font-size:29px;line-height:1.4">Direct booking is for NHG Polyclinics and the National Skin Centre. Other hospitals open a request form instead.</div>
+</div>
+</div>
+<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:34px">
+<div style="position:relative;display:flex;flex-direction:column;gap:22px">
+<div style="position:absolute;top:-18px;left:-18px;width:58px;height:58px;background:#E4572E;color:#fff;font-family:'Barlow Condensed',sans-serif;font-size:34px;display:flex;align-items:center;justify-content:center;z-index:2">1</div>
+<div class="blueprint" style="background:#fff;padding:30px 22px;display:flex;flex-direction:column;gap:16px;flex:1">
+<i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+<div style="font-family:'Barlow Condensed',sans-serif;font-size:30px;color:#5d5d60">Home</div>
+<div style="border:2px solid #E4572E;background:#fdf0eb;padding:16px;font-size:27px">Appointments</div>
+<div style="border:1px solid #d4d4d7;padding:16px;font-size:27px;color:#7a7a7d">My Care Plan</div>
+<div style="border:1px solid #d4d4d7;padding:16px;font-size:27px;color:#7a7a7d">Payments</div>
+</div>
+<div style="font-size:28px;line-height:1.35">Tap <b>Appointments</b>, then NHG Appointments.</div>
+</div>
+<div style="position:relative;display:flex;flex-direction:column;gap:22px">
+<div style="position:absolute;top:-18px;left:-18px;width:58px;height:58px;background:#E4572E;color:#fff;font-family:'Barlow Condensed',sans-serif;font-size:34px;display:flex;align-items:center;justify-content:center;z-index:2">2</div>
+<div class="blueprint" style="background:#fff;padding:30px 22px;display:flex;flex-direction:column;gap:16px;flex:1">
+<i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+<div style="font-family:'Barlow Condensed',sans-serif;font-size:30px;color:#5d5d60">Upcoming</div>
+<div style="border:1px dashed #b7b7ba;padding:22px 16px;font-size:26px;color:#7a7a7d;text-align:center">No appointments yet</div>
+<div style="margin-top:auto;background:#5980a6;color:#fff;padding:16px;font-size:27px;text-align:center;font-family:'Barlow Condensed',sans-serif">+ Add New Appointment</div>
+</div>
+<div style="font-size:28px;line-height:1.35">Tap <b>Add New Appointment</b>.</div>
+</div>
+<div style="position:relative;display:flex;flex-direction:column;gap:22px">
+<div style="position:absolute;top:-18px;left:-18px;width:58px;height:58px;background:#E4572E;color:#fff;font-family:'Barlow Condensed',sans-serif;font-size:34px;display:flex;align-items:center;justify-content:center;z-index:2">3</div>
+<div class="blueprint" style="background:#fff;padding:30px 22px;display:flex;flex-direction:column;gap:16px;flex:1">
+<i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+<div style="border:1px solid #b7b7ba;padding:14px 16px;font-size:26px">Institution</div>
+<div style="border:1px solid #b7b7ba;padding:14px 16px;font-size:26px">Purpose</div>
+<div style="border:1px solid #b7b7ba;padding:14px 16px;font-size:26px">Time slot</div>
+<div style="margin-top:auto;background:#5980a6;color:#fff;padding:16px;font-size:27px;text-align:center;font-family:'Barlow Condensed',sans-serif">Submit</div>
+</div>
+<div style="font-size:28px;line-height:1.35">Choose clinic, purpose and time slot. Tap <b>Submit</b>.</div>
+</div>
+<div style="position:relative;display:flex;flex-direction:column;gap:22px">
+<div style="position:absolute;top:-18px;left:-18px;width:58px;height:58px;background:#E4572E;color:#fff;font-family:'Barlow Condensed',sans-serif;font-size:34px;display:flex;align-items:center;justify-content:center;z-index:2">4</div>
+<div class="blueprint" style="background:#fff;padding:30px 22px;display:flex;flex-direction:column;gap:16px;flex:1">
+<i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+<div style="font-family:'Barlow Condensed',sans-serif;font-size:30px;color:#5d5d60">Review</div>
+<div style="font-size:26px;line-height:1.5;color:#424244">Yishun Polyclinic<br>Health check<br>12 Aug, 9:30 am</div>
+<div style="margin-top:auto;border:2px solid #E4572E;background:#fdf0eb;padding:16px;font-size:27px;text-align:center;font-family:'Barlow Condensed',sans-serif">Confirm</div>
+</div>
+<div style="font-size:28px;line-height:1.35">Check the details and tap <b>Confirm</b>.</div>
+</div>
+</div>
+</section>
+
+<section data-label="Register queue" data-screen-label="05" data-speaker-notes="Registering early means less waiting at the clinic. The e-Itinerary shows every station for the visit." style="background:#f2f2f3;color:#1d1f20;font-family:Barlow,sans-serif;padding:88px 100px 72px;display:grid;grid-template-columns:520px 1fr;gap:80px">
+<div style="display:flex;flex-direction:column">
+<div style="font-family:'Barlow Condensed',sans-serif;font-size:28px;letter-spacing:.22em;text-transform:uppercase;color:#416180;margin-bottom:14px">Clinic day · Guide page 18</div>
+<h2 style="margin:0 0 28px;font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:76px;line-height:1.02">Registering for the queue</h2>
+<div style="font-size:34px;line-height:1.45;color:#424244;margin-bottom:auto">Register from home on the morning of your visit. Your e-Itinerary then shows every stop of the day.</div>
+<div class="blueprint" style="padding:28px 30px;display:flex;flex-direction:column;gap:10px">
+<i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+<div style="font-family:'Barlow Condensed',sans-serif;font-size:30px;letter-spacing:.16em;text-transform:uppercase;color:#416180">Where it works</div>
+<div style="font-size:29px;line-height:1.4">All NHG institutions except the National Skin Centre.</div>
+</div>
+</div>
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:44px">
+<div style="position:relative;display:flex;flex-direction:column;gap:22px">
+<div style="position:absolute;top:-18px;left:-18px;width:58px;height:58px;background:#E4572E;color:#fff;font-family:'Barlow Condensed',sans-serif;font-size:34px;display:flex;align-items:center;justify-content:center;z-index:2">1</div>
+<div class="blueprint" style="background:#fff;padding:32px 26px;display:flex;flex-direction:column;gap:18px;flex:1">
+<i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+<div style="font-family:'Barlow Condensed',sans-serif;font-size:32px;color:#5d5d60">Today’s appointment</div>
+<div style="font-size:27px;line-height:1.5;color:#424244">Yishun Polyclinic<br>9:30 am · Consultation</div>
+<div style="margin-top:auto;border:2px solid #E4572E;background:#fdf0eb;padding:18px;font-size:29px;text-align:center;font-family:'Barlow Condensed',sans-serif">Register</div>
+</div>
+<div style="font-size:29px;line-height:1.35">Open <b>Appointments</b> and tap <b>Register</b>.</div>
+</div>
+<div style="position:relative;display:flex;flex-direction:column;gap:22px">
+<div style="position:absolute;top:-18px;left:-18px;width:58px;height:58px;background:#E4572E;color:#fff;font-family:'Barlow Condensed',sans-serif;font-size:34px;display:flex;align-items:center;justify-content:center;z-index:2">2</div>
+<div class="blueprint" style="background:#fff;padding:32px 26px;display:flex;flex-direction:column;gap:18px;flex:1">
+<i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+<div style="font-family:'Barlow Condensed',sans-serif;font-size:32px;color:#5d5d60">Short questionnaire</div>
+<div style="display:flex;align-items:center;gap:14px;font-size:27px"><div style="width:30px;height:30px;border:2px solid #5980a6;background:#5980a6"></div>Yes</div>
+<div style="display:flex;align-items:center;gap:14px;font-size:27px;color:#7a7a7d"><div style="width:30px;height:30px;border:2px solid #b7b7ba"></div>No</div>
+<div style="margin-top:auto;background:#5980a6;color:#fff;padding:18px;font-size:29px;text-align:center;font-family:'Barlow Condensed',sans-serif">Confirm</div>
+</div>
+<div style="font-size:29px;line-height:1.35">Answer the few questions, then tap <b>Confirm</b>.</div>
+</div>
+<div style="position:relative;display:flex;flex-direction:column;gap:22px">
+<div style="position:absolute;top:-18px;left:-18px;width:58px;height:58px;background:#E4572E;color:#fff;font-family:'Barlow Condensed',sans-serif;font-size:34px;display:flex;align-items:center;justify-content:center;z-index:2">3</div>
+<div class="blueprint" style="background:#fff;padding:32px 26px;display:flex;flex-direction:column;gap:18px;flex:1">
+<i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+<div style="font-family:'Barlow Condensed',sans-serif;font-size:32px;color:#5d5d60">e-Itinerary</div>
+<div style="display:inline-block;align-self:flex-start;border:1px solid #5980a6;color:#416180;padding:8px 16px;font-size:25px">Pending Arrival</div>
+<div style="font-size:27px;line-height:1.6;color:#424244">1 · Registration<br>2 · Consultation<br>3 · Pharmacy</div>
+</div>
+<div style="font-size:29px;line-height:1.35">Your itinerary appears with the status <b>Pending Arrival</b>.</div>
+</div>
+</div>
+</section>
+
+<section data-label="I have arrived" data-screen-label="06" data-speaker-notes="Thirty minutes before, not earlier. After checking in they can watch the queue on the phone instead of standing at the counter." style="background:#1d2d3d;color:#f2f2f3;font-family:Barlow,sans-serif;padding:88px 100px 72px;display:grid;grid-template-columns:520px 1fr;gap:80px">
+<div style="display:flex;flex-direction:column">
+<div style="font-family:'Barlow Condensed',sans-serif;font-size:28px;letter-spacing:.22em;text-transform:uppercase;color:#94bce3;margin-bottom:14px">Clinic day · Guide page 19</div>
+<h2 style="margin:0 0 28px;font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:76px;line-height:1.02;color:#f2f2f3">Checking in when you arrive</h2>
+<div style="font-size:34px;line-height:1.45;color:#bdd8f2;margin-bottom:40px">No counter, no paper. One tap tells the clinic you are here.</div>
+<div style="font-family:'Barlow Condensed',sans-serif;font-size:140px;line-height:.9;color:#E4572E">30</div>
+<div style="font-size:32px;line-height:1.35;color:#d6ebff;margin-top:8px">minutes before your appointment — that is when the <b>I have arrived</b> button turns on.</div>
+</div>
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:44px">
+<div style="position:relative;display:flex;flex-direction:column;gap:22px">
+<div style="position:absolute;top:-18px;left:-18px;width:58px;height:58px;background:#E4572E;color:#fff;font-family:'Barlow Condensed',sans-serif;font-size:34px;display:flex;align-items:center;justify-content:center;z-index:2">1</div>
+<div class="blueprint" style="background:#f2f2f3;color:#1d1f20;padding:32px 26px;display:flex;flex-direction:column;gap:18px;flex:1">
+<i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+<div style="font-family:'Barlow Condensed',sans-serif;font-size:32px;color:#5d5d60">Appointment card</div>
+<div style="font-size:27px;line-height:1.5;color:#424244">Yishun Polyclinic<br>9:30 am</div>
+<div style="margin-top:auto;border:2px solid #E4572E;background:#fdf0eb;padding:18px;font-size:29px;text-align:center;font-family:'Barlow Condensed',sans-serif">I have arrived</div>
+</div>
+<div style="font-size:29px;line-height:1.35;color:#d6ebff">Tap <b>I have arrived</b> when you reach the clinic.</div>
+</div>
+<div style="position:relative;display:flex;flex-direction:column;gap:22px">
+<div style="position:absolute;top:-18px;left:-18px;width:58px;height:58px;background:#E4572E;color:#fff;font-family:'Barlow Condensed',sans-serif;font-size:34px;display:flex;align-items:center;justify-content:center;z-index:2">2</div>
+<div class="blueprint" style="background:#f2f2f3;color:#1d1f20;padding:32px 26px;display:flex;flex-direction:column;gap:18px;flex:1">
+<i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+<div style="font-family:'Barlow Condensed',sans-serif;font-size:32px;color:#5d5d60">Status</div>
+<div style="display:inline-block;align-self:flex-start;background:#5980a6;color:#fff;padding:10px 18px;font-size:26px">Arrived</div>
+<div style="font-size:27px;line-height:1.6;color:#424244">1 · Registration ✓<br>2 · Consultation<br>3 · Pharmacy</div>
+</div>
+<div style="font-size:29px;line-height:1.35;color:#d6ebff">Your status and e-Itinerary update on their own.</div>
+</div>
+<div style="position:relative;display:flex;flex-direction:column;gap:22px">
+<div style="position:absolute;top:-18px;left:-18px;width:58px;height:58px;background:#E4572E;color:#fff;font-family:'Barlow Condensed',sans-serif;font-size:34px;display:flex;align-items:center;justify-content:center;z-index:2">3</div>
+<div class="blueprint" style="background:#f2f2f3;color:#1d1f20;padding:32px 26px;display:flex;flex-direction:column;gap:18px;flex:1">
+<i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+<div style="font-family:'Barlow Condensed',sans-serif;font-size:32px;color:#5d5d60">Queue number</div>
+<div style="font-family:'Barlow Condensed',sans-serif;font-size:72px;line-height:1;color:#416180">A 24</div>
+<div style="margin-top:auto;border:2px solid #E4572E;background:#fdf0eb;padding:18px;font-size:29px;text-align:center;font-family:'Barlow Condensed',sans-serif">Check Queue</div>
+</div>
+<div style="font-size:29px;line-height:1.35;color:#d6ebff">Tap <b>Check Queue</b> any time to see your turn.</div>
+</div>
+</div>
+</section>
+
+<section data-label="Allergies &amp; health issues" data-screen-label="07" data-speaker-notes="Encourage them to look at this before any hospital visit — it is what doctors need to know quickly." style="background:#f2f2f3;color:#1d1f20;font-family:Barlow,sans-serif;padding:88px 100px 72px;display:grid;grid-template-columns:520px 1fr;gap:80px">
+<div style="display:flex;flex-direction:column">
+<div style="font-family:'Barlow Condensed',sans-serif;font-size:28px;letter-spacing:.22em;text-transform:uppercase;color:#416180;margin-bottom:14px">My Care Plan · Guide page 43</div>
+<h2 style="margin:0 0 28px;font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:76px;line-height:1.02">Allergies and health issues</h2>
+<div style="font-size:34px;line-height:1.45;color:#424244;margin-bottom:auto">Your record from the clinic, on your phone. Useful when a new doctor asks, “Any allergies?”</div>
+<div class="blueprint" style="padding:28px 30px;display:flex;flex-direction:column;gap:10px">
+<i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+<div style="font-family:'Barlow Condensed',sans-serif;font-size:30px;letter-spacing:.16em;text-transform:uppercase;color:#416180">Tip</div>
+<div style="font-size:29px;line-height:1.4">Show this screen to the nurse instead of trying to remember every name.</div>
+</div>
+</div>
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:44px">
+<div style="position:relative;display:flex;flex-direction:column;gap:22px">
+<div style="position:absolute;top:-18px;left:-18px;width:58px;height:58px;background:#E4572E;color:#fff;font-family:'Barlow Condensed',sans-serif;font-size:34px;display:flex;align-items:center;justify-content:center;z-index:2">1</div>
+<div class="blueprint" style="background:#fff;padding:32px 26px;display:flex;flex-direction:column;gap:16px;flex:1">
+<i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+<div style="font-family:'Barlow Condensed',sans-serif;font-size:32px;color:#5d5d60">Home</div>
+<div style="border:2px solid #E4572E;background:#fdf0eb;padding:16px;font-size:27px">My Care Plan</div>
+<div style="border:1px solid #d4d4d7;padding:16px;font-size:27px;color:#7a7a7d">Appointments</div>
+<div style="border:1px solid #d4d4d7;padding:16px;font-size:27px;color:#7a7a7d">Payments</div>
+</div>
+<div style="font-size:29px;line-height:1.35">Tap <b>My Care Plan</b>.</div>
+</div>
+<div style="position:relative;display:flex;flex-direction:column;gap:22px">
+<div style="position:absolute;top:-18px;left:-18px;width:58px;height:58px;background:#E4572E;color:#fff;font-family:'Barlow Condensed',sans-serif;font-size:34px;display:flex;align-items:center;justify-content:center;z-index:2">2</div>
+<div class="blueprint" style="background:#fff;padding:32px 26px;display:flex;flex-direction:column;gap:16px;flex:1">
+<i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+<div style="font-family:'Barlow Condensed',sans-serif;font-size:32px;color:#5d5d60">My Health Info</div>
+<div style="border:2px solid #E4572E;background:#fdf0eb;padding:16px;font-size:27px">Allergies</div>
+<div style="border:2px solid #E4572E;background:#fdf0eb;padding:16px;font-size:27px">Health Issues</div>
+<div style="border:1px solid #d4d4d7;padding:16px;font-size:27px;color:#7a7a7d">Medications</div>
+</div>
+<div style="font-size:29px;line-height:1.35">Scroll down to <b>My Health Info</b> and tap either one.</div>
+</div>
+<div style="position:relative;display:flex;flex-direction:column;gap:22px">
+<div style="position:absolute;top:-18px;left:-18px;width:58px;height:58px;background:#E4572E;color:#fff;font-family:'Barlow Condensed',sans-serif;font-size:34px;display:flex;align-items:center;justify-content:center;z-index:2">3</div>
+<div class="blueprint" style="background:#fff;padding:32px 26px;display:flex;flex-direction:column;gap:16px;flex:1">
+<i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+<div style="font-family:'Barlow Condensed',sans-serif;font-size:32px;color:#5d5d60">Allergies</div>
+<div style="border-bottom:1px solid #e7e7ea;padding-bottom:12px;font-size:27px">Penicillin · Rash</div>
+<div style="border-bottom:1px solid #e7e7ea;padding-bottom:12px;font-size:27px">Seafood · Itching</div>
+<div style="font-size:27px;color:#7a7a7d">Recorded by your clinic</div>
+</div>
+<div style="font-size:29px;line-height:1.35">Read your list. It comes from your clinic records.</div>
+</div>
+</div>
+</section>
+
+<section data-label="Medications" data-screen-label="08" data-speaker-notes="The Edit button adds a personal note — for example 'take after breakfast'. This is the part participants enjoy most." style="background:#f2f2f3;color:#1d1f20;font-family:Barlow,sans-serif;padding:88px 100px 72px;display:grid;grid-template-columns:520px 1fr;gap:80px">
+<div style="display:flex;flex-direction:column">
+<div style="font-family:'Barlow Condensed',sans-serif;font-size:28px;letter-spacing:.22em;text-transform:uppercase;color:#416180;margin-bottom:14px">My Care Plan · Guide page 44</div>
+<h2 style="margin:0 0 28px;font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:76px;line-height:1.02">Your medicines, with your own notes</h2>
+<div style="font-size:34px;line-height:1.45;color:#424244;margin-bottom:auto">Every prescribed medicine is listed. You can add a short note in your own words.</div>
+<div class="blueprint" style="border-color:#E4572E;background:#fdf0eb;padding:28px 30px;display:flex;flex-direction:column;gap:10px">
+<i class="corner tl" style="color:#E4572E"></i><i class="corner tr" style="color:#E4572E"></i><i class="corner bl" style="color:#E4572E"></i><i class="corner br" style="color:#E4572E"></i>
+<div style="font-family:'Barlow Condensed',sans-serif;font-size:30px;letter-spacing:.16em;text-transform:uppercase;color:#E4572E">Try this today</div>
+<div style="font-size:29px;line-height:1.4">Add a note to one medicine — “after breakfast”, “白色药丸”, or whatever helps you remember.</div>
+</div>
+</div>
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:44px">
+<div style="position:relative;display:flex;flex-direction:column;gap:22px">
+<div style="position:absolute;top:-18px;left:-18px;width:58px;height:58px;background:#E4572E;color:#fff;font-family:'Barlow Condensed',sans-serif;font-size:34px;display:flex;align-items:center;justify-content:center;z-index:2">1</div>
+<div class="blueprint" style="background:#fff;padding:32px 26px;display:flex;flex-direction:column;gap:16px;flex:1">
+<i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+<div style="font-family:'Barlow Condensed',sans-serif;font-size:32px;color:#5d5d60">My Health Info</div>
+<div style="border:1px solid #d4d4d7;padding:16px;font-size:27px;color:#7a7a7d">Allergies</div>
+<div style="border:2px solid #E4572E;background:#fdf0eb;padding:16px;font-size:27px">Medications</div>
+<div style="border:1px solid #d4d4d7;padding:16px;font-size:27px;color:#7a7a7d">MOH Health Plan</div>
+</div>
+<div style="font-size:29px;line-height:1.35">In <b>My Care Plan</b>, tap <b>Medications</b>.</div>
+</div>
+<div style="position:relative;display:flex;flex-direction:column;gap:22px">
+<div style="position:absolute;top:-18px;left:-18px;width:58px;height:58px;background:#E4572E;color:#fff;font-family:'Barlow Condensed',sans-serif;font-size:34px;display:flex;align-items:center;justify-content:center;z-index:2">2</div>
+<div class="blueprint" style="background:#fff;padding:32px 26px;display:flex;flex-direction:column;gap:16px;flex:1">
+<i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+<div style="font-family:'Barlow Condensed',sans-serif;font-size:32px;color:#5d5d60">Medications</div>
+<div style="border-bottom:1px solid #e7e7ea;padding-bottom:12px;font-size:27px;line-height:1.4">Metformin 500mg<br><span style="color:#7a7a7d">Twice daily</span></div>
+<div style="font-size:27px;line-height:1.4">Amlodipine 5mg<br><span style="color:#7a7a7d">Once in the morning</span></div>
+</div>
+<div style="font-size:29px;line-height:1.35">See every medicine and how to take it.</div>
+</div>
+<div style="position:relative;display:flex;flex-direction:column;gap:22px">
+<div style="position:absolute;top:-18px;left:-18px;width:58px;height:58px;background:#E4572E;color:#fff;font-family:'Barlow Condensed',sans-serif;font-size:34px;display:flex;align-items:center;justify-content:center;z-index:2">3</div>
+<div class="blueprint" style="background:#fff;padding:32px 26px;display:flex;flex-direction:column;gap:16px;flex:1">
+<i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+<div style="font-family:'Barlow Condensed',sans-serif;font-size:32px;color:#5d5d60">Metformin 500mg</div>
+<div style="border:1px solid #b7b7ba;padding:16px;font-size:26px;color:#424244;line-height:1.4">My note: after breakfast</div>
+<div style="margin-top:auto;border:2px solid #E4572E;background:#fdf0eb;padding:16px;font-size:28px;text-align:center;font-family:'Barlow Condensed',sans-serif">Edit</div>
+</div>
+<div style="font-size:29px;line-height:1.35">Tap <b>Edit</b> to write your own reminder.</div>
+</div>
+</div>
+</section>
+
+<section data-label="Medicine refill" data-screen-label="09" data-speaker-notes="Nine steps sounds like a lot — say it is really just: who you are, where to send it, how to pay. Delivery takes a few working days." style="background:#f2f2f3;color:#1d1f20;font-family:Barlow,sans-serif;padding:88px 100px 72px;display:flex;flex-direction:column">
+<div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:20px">
+<div>
+<div style="font-family:'Barlow Condensed',sans-serif;font-size:28px;letter-spacing:.22em;text-transform:uppercase;color:#416180;margin-bottom:14px">Medication · Guide pages 59–60</div>
+<h2 style="margin:0;font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:76px;line-height:1.02">Asking for a medicine refill</h2>
+</div>
+<div style="font-size:30px;color:#424244;text-align:right;line-height:1.4">Running low?<br>Order before your last week of tablets.</div>
+</div>
+<div style="font-size:34px;color:#424244;max-width:1250px;margin-bottom:52px">Three simple parts: tell them <b>who you are</b>, <b>where to send it</b>, and <b>how you will pay</b>.</div>
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:44px;flex:1">
+<div class="blueprint" style="background:#fff;padding:38px 34px;display:flex;flex-direction:column;gap:20px">
+<i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+<div style="display:flex;align-items:baseline;gap:18px"><div style="font-family:'Barlow Condensed',sans-serif;font-size:60px;line-height:1;color:#E4572E">A</div><div style="font-family:'Barlow Condensed',sans-serif;font-size:42px;line-height:1.05">Start the request</div></div>
+<div style="height:1px;background:#d4d4d7"></div>
+<div style="font-size:30px;line-height:1.5">Open <b>Medications</b>, choose the medicines you need, and tap <b>Request Refill</b>.</div>
+<div style="margin-top:auto;display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;align-items:center;gap:14px;font-size:27px"><div style="width:30px;height:30px;border:2px solid #5980a6;background:#5980a6"></div>Metformin 500mg</div>
+<div style="display:flex;align-items:center;gap:14px;font-size:27px"><div style="width:30px;height:30px;border:2px solid #5980a6;background:#5980a6"></div>Amlodipine 5mg</div>
+</div>
+</div>
+<div class="blueprint" style="background:#fff;padding:38px 34px;display:flex;flex-direction:column;gap:20px">
+<i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+<div style="display:flex;align-items:baseline;gap:18px"><div style="font-family:'Barlow Condensed',sans-serif;font-size:60px;line-height:1;color:#E4572E">B</div><div style="font-family:'Barlow Condensed',sans-serif;font-size:42px;line-height:1.05">Details and delivery</div></div>
+<div style="height:1px;background:#d4d4d7"></div>
+<div style="font-size:30px;line-height:1.5">Fill in your contact details, then choose collection or home delivery. Tap <b>Next</b> each time.</div>
+<div style="margin-top:auto;display:flex;flex-direction:column;gap:12px">
+<div style="border:1px solid #b7b7ba;padding:14px 16px;font-size:26px;color:#7a7a7d">Mobile number</div>
+<div style="border:2px solid #E4572E;background:#fdf0eb;padding:14px 16px;font-size:26px">Home delivery</div>
+</div>
+</div>
+<div class="blueprint" style="background:#fff;padding:38px 34px;display:flex;flex-direction:column;gap:20px">
+<i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+<div style="display:flex;align-items:baseline;gap:18px"><div style="font-family:'Barlow Condensed',sans-serif;font-size:60px;line-height:1;color:#E4572E">C</div><div style="font-family:'Barlow Condensed',sans-serif;font-size:42px;line-height:1.05">Pay and submit</div></div>
+<div style="height:1px;background:#d4d4d7"></div>
+<div style="font-size:30px;line-height:1.5">Pick your payment option, check the summary, and tap <b>Submit request</b>.</div>
+<div style="margin-top:auto;display:flex;flex-direction:column;gap:12px">
+<div style="background:#5980a6;color:#fff;padding:16px;font-size:28px;text-align:center;font-family:'Barlow Condensed',sans-serif">Submit request</div>
+<div style="font-size:27px;color:#416180">You will see “Request Submitted”.</div>
+</div>
+</div>
+</div>
+</section>
+
+<section data-label="Practice time" data-screen-label="10" data-speaker-notes="Pair participants up. Volunteers walk the room. Finish by reminding them of the helpline and the next session." style="background:#f2f2f3;color:#1d1f20;font-family:Barlow,sans-serif;padding:88px 100px 72px;display:grid;grid-template-columns:1fr 1fr;gap:80px">
+<div style="display:flex;flex-direction:column">
+<div style="font-family:'Barlow Condensed',sans-serif;font-size:28px;letter-spacing:.22em;text-transform:uppercase;color:#E4572E;margin-bottom:14px">Your turn</div>
+<h2 style="margin:0 0 30px;font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:76px;line-height:1.02">Practice time</h2>
+<div style="font-size:34px;line-height:1.45;color:#424244;margin-bottom:46px">Take out your phone. Try these three with the person beside you — a volunteer will come around to help.</div>
+<div style="display:flex;flex-direction:column;gap:26px">
+<div class="blueprint" style="padding:26px 30px;display:flex;align-items:center;gap:26px">
+<i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+<div style="width:44px;height:44px;border:2px solid #1d1f20;flex:none"></div>
+<div style="font-size:32px;line-height:1.35">Open the app and find <b>Appointments</b>.</div>
+</div>
+<div class="blueprint" style="padding:26px 30px;display:flex;align-items:center;gap:26px">
+<i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+<div style="width:44px;height:44px;border:2px solid #1d1f20;flex:none"></div>
+<div style="font-size:32px;line-height:1.35">Find your <b>Allergies</b> list in My Care Plan.</div>
+</div>
+<div class="blueprint" style="padding:26px 30px;display:flex;align-items:center;gap:26px">
+<i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+<div style="width:44px;height:44px;border:2px solid #1d1f20;flex:none"></div>
+<div style="font-size:32px;line-height:1.35">Add one note to a medicine.</div>
+</div>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:36px">
+<div class="blueprint" style="background:#1d2d3d;color:#f2f2f3;padding:44px 46px;display:flex;flex-direction:column;gap:22px">
+<i class="corner tl" style="color:#94bce3"></i><i class="corner tr" style="color:#94bce3"></i><i class="corner bl" style="color:#94bce3"></i><i class="corner br" style="color:#94bce3"></i>
+<div style="font-family:'Barlow Condensed',sans-serif;font-size:30px;letter-spacing:.18em;text-transform:uppercase;color:#94bce3">Quick quiz</div>
+<div style="font-size:36px;line-height:1.35">How many minutes before your appointment can you tap <b>I have arrived</b>?</div>
+<div style="display:flex;gap:20px">
+<div style="border:1px solid rgba(214,235,255,.45);padding:14px 30px;font-family:'Barlow Condensed',sans-serif;font-size:34px">10</div>
+<div style="border:2px solid #E4572E;background:#E4572E;color:#fff;padding:14px 30px;font-family:'Barlow Condensed',sans-serif;font-size:34px">30</div>
+<div style="border:1px solid rgba(214,235,255,.45);padding:14px 30px;font-family:'Barlow Condensed',sans-serif;font-size:34px">60</div>
+</div>
+<div style="font-size:28px;color:#bdd8f2">Answer: 30 minutes.</div>
+</div>
+<div class="blueprint" style="padding:40px 46px;display:flex;flex-direction:column;gap:16px;margin-top:auto">
+<i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+<div style="font-family:'Barlow Condensed',sans-serif;font-size:30px;letter-spacing:.18em;text-transform:uppercase;color:#416180">Need help after today?</div>
+<div style="font-size:34px;line-height:1.45">Drop by your Care Corner Active Ageing Centre. Bring your phone and your Singpass — we will sit with you.</div>
+</div>
+</div>
+</section>
+
+</x-import>
+
+</x-dc>
+
+
+</body></html>
