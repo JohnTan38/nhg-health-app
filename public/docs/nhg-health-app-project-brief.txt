@@ -1,0 +1,16 @@
+<slide-deck-main-content-context>Getting Started with NHG Health App (page 5)
+Book Appointment (page 16)
+Appointment - Queue registration & E-Itinerary (page 18)
+Appointment - "I have Arrived" and E-Itinerary (page 19)
+My Care Plan : Allergies & Health Issues (page 43)
+My care Plan - Medications (page 44)
+Medication Refill Request (1/2)
+Medication Refill Request (2/2)</slide-deck-main-content-context><target-audience>elderly seniors within Singapore social service context; include some "fun learning" elements, easy-to-digest content</target-audience>
+<github-repo>https://github.com/JohnTan38/nhg-health-app</github-repo><context-reference>pdf file nhg-comprehensive-user-guide in GitHub repo folder "public/docs"</context-reference>
+<claude-design-system-prompt>https://github.com/JohnTan38/CL4R1T4S/blob/main/ANTHROPIC/Claude-Design-Sys-Prompt.txt</claude-design-system-prompt>
+<claude-opus-4.7-system-prompt>https://github.com/JohnTan38/CL4R1T4S/blob/main/ANTHROPIC/Claude-Opus-4.7.txt</claude-opus-4.7-system-prompt>
+
+<nhg-video-facebook><iframe src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1515863629476795%2F&show_text=true&width=267&t=0" width="267" height="591" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe></nhg-video-facebook>
+
+<create awesome-slides>create presentation slides - visually impressive, impact on first impressions, using selected design system "industry", 9 to 10 slides</create-awesome-slides><claude-code>downstream use - slide deck automation (voiceover) developed with CLAUDE CODE and deployed to vercel as web and mobile optimized app</claude-code>
+
