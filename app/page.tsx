@@ -1,3 +1,6 @@
+import { Deck } from '@/components/Deck';
+import { SLIDES } from '@/content/slides';
+
 export default function Home() {
-  return <main>NHG Health App</main>;
+  return <Deck slides={SLIDES} />;
 }

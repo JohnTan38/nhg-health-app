@@ -1,0 +1,16 @@
+.deck { display: flex; flex-direction: column; min-height: 100dvh; }
+.stage { position: relative; flex: 1; overflow: hidden; }
+.layer { animation: fadeIn var(--fade-ms) ease both; height: 100%; }
+.stage[data-reduced='true'] .layer { animation: none; }
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+.srOnly {
+  position: absolute; width: 1px; height: 1px;
+  overflow: hidden; clip-path: inset(50%); white-space: nowrap;
+}
+
+@media (min-width: 768px) {
+  .stage { aspect-ratio: 16 / 9; flex: none; }
+  .deck { max-width: 1600px; margin: 0 auto; }
+}

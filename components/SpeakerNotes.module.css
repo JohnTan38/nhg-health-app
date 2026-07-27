@@ -1,0 +1,10 @@
+/* Always in the DOM so screen readers reach the same words the synthesiser
+   speaks; visually hidden unless captions are switched on. */
+.notes[data-visible='false'] {
+  position: absolute; width: 1px; height: 1px;
+  overflow: hidden; clip-path: inset(50%); white-space: nowrap;
+}
+.notes[data-visible='true'] {
+  padding: 16px 20px; font-size: var(--type-small);
+  background: var(--steel900); color: var(--on-dark);
+}
