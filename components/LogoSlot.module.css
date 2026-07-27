@@ -7,7 +7,9 @@
 }
 /* Never upscale past the asset's native 332px — it blurs on high-DPI screens. */
 .image { width: 100%; max-width: 332px; height: auto; object-fit: contain; }
+/* Light text: this slot renders on the dark cover slide, whose background
+   itself is --steel900 — dark-on-dark would make a missing logo invisible. */
 .fallbackLine {
   font-family: var(--font-heading); font-size: var(--type-subtitle);
-  color: var(--steel900); text-align: center; line-height: 1.15;
+  color: var(--on-dark); text-align: center; line-height: 1.15;
 }
