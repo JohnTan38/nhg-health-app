@@ -707,7 +707,7 @@ export interface Quiz {
 }
 
 export type SlideBody =
-  | { kind: 'cover'; presentedBy: string[] }
+  | { kind: 'cover'; presentedBy: string[]; intro: string }
   | { kind: 'overview'; cards: OverviewCard[] }
   | { kind: 'steps'; callout?: Callout; stat?: Stat; steps: Step[]; lettered?: boolean }
   | { kind: 'video'; embedUrl: string; posterTitle: string; posterBody: string }
@@ -889,6 +889,8 @@ export const SLIDES: Slide[] = [
       'Welcome everyone. Today we learn the NHG Health App together — one step at a time. No rush.',
     body: {
       kind: 'cover',
+      intro:
+        'Book your clinic appointment, join the queue, check in on arrival, and keep track of your medicines — all from your own phone.',
       presentedBy: ['Care Corner Singapore', 'Active Ageing & Senior Services'],
     },
   },
@@ -935,7 +937,11 @@ export const SLIDES: Slide[] = [
           marker: '2',
           caption: 'Tap your preferred language, then Confirm.',
           mock: [
-            { kind: 'chips', items: ['English', '中文', 'Melayu'], active: 'English' },
+            // The source highlights 中文 (2px orange border, tinted background)
+            // while English and Melayu carry plain grey borders. Keep it: a
+            // Chinese-speaking senior seeing their own language selected learns
+            // immediately that the app supports them.
+            { kind: 'chips', items: ['English', '中文', 'Melayu'], active: '中文' },
             { kind: 'button', label: 'Confirm', primary: true },
           ],
         },
@@ -2349,6 +2355,7 @@ type Body = Extract<SlideBody, { kind: 'cover' }>;
 export function CoverSlide({ body }: { body: Body }) {
   return (
     <div className={styles.cover}>
+      <p className={styles.coverIntro}>{body.intro}</p>
       <p className={styles.presentedBy}>Presented by</p>
       <LogoSlot src="/images/care-corner-logo.png" alt="Care Corner Singapore" fallback={body.presentedBy} />
     </div>
@@ -2500,6 +2507,10 @@ Mobile-first. The desktop presentation composition arrives at the 768px breakpoi
 .slide[data-theme='dark'] .lede { color: var(--on-dark); }
 
 .cover { display: flex; flex-direction: column; align-items: center; gap: 16px; margin-top: auto; }
+.coverIntro {
+  font-size: var(--type-body); color: var(--on-dark-soft);
+  max-width: 40ch; text-align: center;
+}
 .presentedBy {
   font-family: var(--font-heading); font-size: var(--type-small);
   letter-spacing: 0.2em; text-transform: uppercase; color: var(--steel-lt);
