@@ -1,0 +1,67 @@
+.slide {
+  display: flex; flex-direction: column; gap: 24px;
+  padding: 32px 20px 40px;
+  min-height: 100%;
+  background: var(--paper); color: var(--ink);
+}
+.slide[data-theme='dark'] { background: var(--steel900); color: var(--paper); }
+
+.header { display: flex; flex-direction: column; gap: 10px; }
+.eyebrow {
+  font-family: var(--font-heading); font-size: var(--type-small);
+  letter-spacing: 0.18em; text-transform: uppercase; color: var(--steel-mid);
+}
+.slide[data-theme='dark'] .eyebrow { color: var(--steel-lt); }
+.title {
+  font-family: var(--font-heading); font-weight: 600;
+  font-size: var(--type-title); line-height: 1.05;
+}
+.lede { font-size: var(--type-body); color: var(--ink-soft); }
+.slide[data-theme='dark'] .lede { color: var(--on-dark); }
+
+.cover { display: flex; flex-direction: column; align-items: center; gap: 16px; margin-top: auto; }
+.coverIntro {
+  font-size: var(--type-body); color: var(--on-dark-soft);
+  max-width: 40ch; text-align: center;
+}
+.presentedBy {
+  font-family: var(--font-heading); font-size: var(--type-small);
+  letter-spacing: 0.2em; text-transform: uppercase; color: var(--steel-lt);
+}
+
+.cards, .steps, .tasks { list-style: none; display: grid; gap: 20px; }
+.card, .step {
+  display: flex; flex-direction: column; gap: 12px;
+  padding: 20px; border: 1px solid color-mix(in srgb, currentColor 22%, transparent);
+}
+.cardNumber, .marker {
+  font-family: var(--font-heading); font-size: var(--type-subtitle);
+  line-height: 1; color: var(--care);
+}
+.cardTitle, .mockTitle { font-family: var(--font-heading); font-size: var(--type-subtitle); }
+.cardBody, .caption { font-size: var(--type-small); color: var(--ink-soft); }
+.slide[data-theme='dark'] .cardBody, .slide[data-theme='dark'] .caption { color: var(--on-dark-soft); }
+
+.callout, .stat {
+  display: flex; flex-direction: column; gap: 8px;
+  padding: 18px; border-left: 5px solid var(--care);
+  background: color-mix(in srgb, var(--care) 8%, transparent);
+  font-size: var(--type-small);
+}
+.calloutTitle { font-family: var(--font-heading); font-size: var(--type-subtitle); }
+.statValue { font-family: var(--font-heading); font-size: var(--type-title); color: var(--care); line-height: 1; }
+
+.stepsWrap, .practice, .video { display: flex; flex-direction: column; gap: 24px; }
+.task { padding: 16px 20px; border: 1px solid color-mix(in srgb, currentColor 22%, transparent); }
+.practiceAside { display: flex; flex-direction: column; gap: 24px; }
+
+@media (min-width: 768px) {
+  .slide { padding: 56px 64px 64px; gap: 32px; }
+  .cards { grid-template-columns: repeat(5, 1fr); }
+  .steps { grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); }
+  .steps[data-lettered='true'] { grid-template-columns: repeat(3, 1fr); }
+  .stepsWrap { display: grid; grid-template-columns: minmax(240px, 320px) 1fr; align-items: start; gap: 40px; }
+  .stepsWrap:not(:has(.callout)):not(:has(.stat)) { display: flex; }
+  .practice { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+  .cover { flex-direction: column; margin-top: 0; }
+}
