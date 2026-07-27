@@ -2177,8 +2177,8 @@ export function LogoSlot({ src, alt, fallback }: LogoSlotProps) {
         <Image
           src={src}
           alt={alt}
-          width={420}
-          height={200}
+          width={332}
+          height={212}
           className={styles.image}
           onError={() => setFailed(true)}
           priority
@@ -2199,13 +2199,21 @@ export function LogoSlot({ src, alt, fallback }: LogoSlotProps) {
 
 - [ ] **Step 8: Create `components/LogoSlot.module.css`**
 
+The supplied logo is **332×212 px with an opaque dark background** baked in
+(white wordmark, crimson knot mark). It therefore must NOT sit on a light panel —
+no `background: var(--paper)` here. Slide 01 is the dark-themed cover, so the
+slot stays transparent and the logo's own dark ground blends into it.
+
 ```css
 .slot {
   width: min(420px, 100%); min-height: 140px;
   display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px;
-  padding: 20px; background: var(--paper);
+  padding: 20px;
+  /* Transparent: the supplied logo carries its own dark background. */
+  background: transparent;
 }
-.image { width: 100%; height: auto; object-fit: contain; }
+/* Never upscale past the asset's native 332px — it blurs on high-DPI screens. */
+.image { width: 100%; max-width: 332px; height: auto; object-fit: contain; }
 .fallbackLine {
   font-family: var(--font-heading); font-size: var(--type-subtitle);
   color: var(--steel900); text-align: center; line-height: 1.15;
@@ -2966,14 +2974,23 @@ git commit -m "feat: add deck orchestrator, controls and page wiring"
 - Create: `public/docs/nhg-health-digital-education.pdf`, `public/images/README.md`
 - Create: `tests/unit/assets.test.ts`
 
-- [ ] **Step 1: Copy the PDF into the app**
+- [ ] **Step 1: Confirm the assets are already in place**
+
+Both assets were placed before execution began. Verify rather than re-copy:
+
+```bash
+ls -l public/docs/nhg-health-digital-education.pdf public/images/care-corner-logo.png
+```
+
+Expected: PDF ~109 KB, logo ~73 KB. If either is missing:
 
 ```bash
 mkdir -p public/docs public/images
 cp "/c/Users/admin/Downloads/nhg-health digital-education.pdf" public/docs/nhg-health-digital-education.pdf
+cp "/c/Users/admin/Downloads/care-corner-logo.png" public/images/care-corner-logo.png
 ```
 
-Note the source filename contains a space; the destination deliberately does not.
+Note the PDF source filename contains a space; the destination deliberately does not.
 
 - [ ] **Step 2: Write the failing test**
 
@@ -2989,6 +3006,12 @@ describe('static assets', () => {
     expect(existsSync(path)).toBe(true);
     expect(statSync(path).size).toBeGreaterThan(10_000);
   });
+
+  it('ships the Care Corner logo at the path the cover slide uses', () => {
+    const path = 'public/images/care-corner-logo.png';
+    expect(existsSync(path)).toBe(true);
+    expect(statSync(path).size).toBeGreaterThan(1_000);
+  });
 });
 ```
 
@@ -3002,21 +3025,27 @@ Expected: PASS. If it fails, the copy in Step 1 did not land.
 ```markdown
 # Images
 
-## care-corner-logo.png — REQUIRED, not yet supplied
+## care-corner-logo.png — supplied
 
-Slide 01 renders the official Care Corner Singapore logo here.
+The official Care Corner Singapore logo, rendered on slide 01.
 
-Drop the official file at exactly:
+Supplied asset: 332 × 212 px PNG, white "care corner" wordmark and crimson knot
+mark on an **opaque dark background**.
 
-    public/images/care-corner-logo.png
+Two consequences for anyone replacing it:
 
-Recommended: transparent PNG or SVG, at least 840×400 for crisp rendering
-on high-density displays.
+1. The logo carries its own dark ground, so `LogoSlot` renders it on a
+   transparent slot over the dark cover slide. A light-background logo would
+   need that CSS changed.
+2. At 332 px native width it is not retina-crisp much beyond its own size, so
+   `.image` caps at `max-width: 332px` rather than upscaling. **If a higher
+   resolution version (≥ 840 px wide) or an SVG becomes available, drop it in
+   and raise that cap** — the render will sharpen on high-DPI phones, which is
+   most of the audience's devices.
 
-Until the file is present, `LogoSlot` renders a typographic fallback reading
-"Care Corner Singapore / Active Ageing & Senior Services". The build, the tests
-and the deploy all succeed without it — the slide simply shows type instead of
-the mark.
+If the file is ever absent, `LogoSlot` falls back to type reading
+"Care Corner Singapore / Active Ageing & Senior Services". Build, tests and
+deploy all succeed either way.
 ```
 
 - [ ] **Step 5: Commit**
