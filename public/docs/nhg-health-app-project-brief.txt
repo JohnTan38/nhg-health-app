@@ -13,3 +13,7 @@ Medication Refill Request (2/2)</slide-deck-main-content-context><target-audienc
 <nhg-video-facebook><iframe src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1515863629476795%2F&show_text=true&width=267&t=0" width="267" height="591" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe></nhg-video-facebook>
 
 <create awesome-slides>create presentation slides - visually impressive, impact on first impressions, using selected design system "industry", 9 to 10 slides</create-awesome-slides><claude-code>downstream use - slide deck automation (voiceover) developed with CLAUDE CODE and deployed to vercel as web and mobile optimized app</claude-code><care-corner-corporate-themes>care corner corporate logo on first slide (introduction slide for how to use NHG HEALTH APP), color gradients and color schemes consistent with care corner corporate theme, https://www.carecorner.org.sg/</care-corner-corporate-themes>
+
+<claude-design-instructions-for-claude-code>Fixed the slide 03 caption alignment and bundled the deck as a self-contained HTML file (download card above).
+
+Two notes for downstream work: slide 1 has an empty drop slot for the official Care Corner logo (drag the PNG onto it), and every slide carries speaker notes in data-speaker-notes — ready-made voiceover script for the Vercel app.</claude-design-instructions-for-claude-code>
