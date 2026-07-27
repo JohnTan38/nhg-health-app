@@ -11,7 +11,16 @@
 **Spec:** `docs/superpowers/specs/2026-07-27-nhg-health-app-deck-design.md`
 **Content source:** `docs/source/deck-template.html` — the extracted bundle markup. Slides appear as `<section data-label=… data-screen-label=… data-speaker-notes=…>`. This is the authoritative text for every slide.
 
-**Version pin — do not "upgrade" this:** TypeScript is pinned to **6.0.3**, not the `latest` 7.0.2. `typescript-eslint@8.65.0` declares `typescript: >=4.8.4 <6.1.0`; TypeScript 7 breaks linting. Verify with `npm view typescript-eslint peerDependencies` before ever changing it.
+**Version pins — do not "upgrade" these.** Two dependencies are deliberately held below `latest`, both verified against the registry:
+
+| Package | Pinned | `latest` | Why |
+|---|---|---|---|
+| `typescript` | 6.0.3 | 7.0.2 | `typescript-eslint@8.65.0` declares `typescript: >=4.8.4 <6.1.0` |
+| `eslint` | 9.39.5 | 10.8.0 | `eslint-config-next@16.2.12` bundles `eslint-plugin-react@7.37.5` (peer `^9.7`), `eslint-plugin-import@2.32.0` (peer `^9`) and `eslint-plugin-jsx-a11y@6.10.2` (peer `^9`). None supports ESLint 10, and `eslint-plugin-react` crashes on it with `contextOrFilename.getFilename is not a function` because ESLint 10 removed `context.getFilename()`. `eslint-config-next` itself claims `eslint: >=9.0.0` with no upper bound — that claim is wrong; its own bundled plugins contradict it. |
+
+Also note `@types/react-dom` tops out at **19.2.3** — it does not track `react-dom`'s version number. Do not "correct" it to match.
+
+Verify with `npm view <pkg> peerDependencies` before changing any of these.
 
 ---
 
@@ -76,7 +85,6 @@
   },
   "devDependencies": {
     "@axe-core/playwright": "4.12.1",
-    "@eslint/eslintrc": "3.3.1",
     "@playwright/test": "1.62.0",
     "@testing-library/dom": "10.4.1",
     "@testing-library/jest-dom": "6.9.1",
@@ -84,9 +92,9 @@
     "@testing-library/user-event": "14.6.1",
     "@types/node": "24.10.1",
     "@types/react": "19.2.8",
-    "@types/react-dom": "19.2.8",
+    "@types/react-dom": "19.2.3",
     "@vitejs/plugin-react": "6.0.4",
-    "eslint": "10.8.0",
+    "eslint": "9.39.5",
     "eslint-config-next": "16.2.12",
     "jsdom": "29.1.1",
     "typescript": "6.0.3",
@@ -144,16 +152,18 @@ export default nextConfig;
 
 - [ ] **Step 5: Create `eslint.config.mjs`**
 
-```js
-import { dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
-import { FlatCompat } from '@eslint/eslintrc';
+`eslint-config-next@16` ships native flat config, so import it directly. Do **not**
+wrap it in `FlatCompat` — feeding an already-flat array to `FlatCompat` throws
+`TypeError: Converting circular structure to JSON`.
 
-const compat = new FlatCompat({ baseDirectory: dirname(fileURLToPath(import.meta.url)) });
+```js
+import nextCoreWebVitals from 'eslint-config-next/core-web-vitals';
+import nextTypescript from 'eslint-config-next/typescript';
 
 export default [
   { ignores: ['.next/**', 'node_modules/**', 'playwright-report/**', 'test-results/**'] },
-  ...compat.extends('next/core-web-vitals', 'next/typescript'),
+  ...nextCoreWebVitals,
+  ...nextTypescript,
 ];
 ```
 
@@ -291,6 +301,14 @@ export default function Home() {
 
 Run: `npm run lint && npm run typecheck && npm run build`
 Expected: all three succeed. `next build` reports `/` as a static route.
+
+`npm run test` will fail with "No test files found" until Task 2 — that is expected
+and is not part of this task's gate.
+
+Next's build rewrites `tsconfig.json`, changing `jsx` from `"preserve"` to
+`"react-jsx"` and adding its generated types to `include`. That is Next
+reconciling its own requirements and it re-applies on every build. Commit the
+rewritten file as-is rather than reverting it.
 
 - [ ] **Step 12: Commit**
 
