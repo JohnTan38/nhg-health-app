@@ -51,6 +51,7 @@ export function Deck({ slides }: { slides: SlideData[] }) {
   useAutoplay({
     playing: playing && !voiceOn,
     durationMs,
+    resetKey: slide.id,
     onAdvance: () => (index < slides.length - 1 ? next() : setPlaying(false)),
   });
 
