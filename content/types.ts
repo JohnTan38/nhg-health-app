@@ -48,7 +48,7 @@ export interface Quiz {
 }
 
 export type SlideBody =
-  | { kind: 'cover'; presentedBy: string[] }
+  | { kind: 'cover'; presentedBy: string[]; intro: string }
   | { kind: 'overview'; cards: OverviewCard[] }
   | { kind: 'steps'; callout?: Callout; stat?: Stat; steps: Step[]; lettered?: boolean }
   | { kind: 'video'; embedUrl: string; posterTitle: string; posterBody: string }

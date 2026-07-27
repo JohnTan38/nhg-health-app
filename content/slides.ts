@@ -16,6 +16,8 @@ export const SLIDES: Slide[] = [
       'Welcome everyone. Today we learn the NHG Health App together — one step at a time. No rush.',
     body: {
       kind: 'cover',
+      intro:
+        'Book your clinic appointment, join the queue, check in on arrival, and keep track of your medicines — all from your own phone.',
       presentedBy: ['Care Corner Singapore', 'Active Ageing & Senior Services'],
     },
   },
@@ -62,7 +64,7 @@ export const SLIDES: Slide[] = [
           marker: '2',
           caption: 'Tap your preferred language, then Confirm.',
           mock: [
-            { kind: 'chips', items: ['English', '中文', 'Melayu'], active: 'English' },
+            { kind: 'chips', items: ['English', '中文', 'Melayu'], active: '中文' },
             { kind: 'button', label: 'Confirm', primary: true },
           ],
         },

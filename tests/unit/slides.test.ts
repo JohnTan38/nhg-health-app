@@ -75,6 +75,12 @@ describe('deck integrity', () => {
     expect(overview.body.cards).toHaveLength(5);
   });
 
+  it('keeps the cover intro paragraph from the source deck', () => {
+    const cover = SLIDES.find((s) => s.id === 'cover');
+    if (cover?.body.kind !== 'cover') throw new Error('unreachable');
+    expect(cover.body.intro).toContain('all from your own phone');
+  });
+
   it('points the video slide at the supplied Facebook reel', () => {
     const video = SLIDES.find((s) => s.id === 'watch-video');
     if (video?.body.kind !== 'video') throw new Error('unreachable');
