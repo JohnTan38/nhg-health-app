@@ -48,3 +48,4 @@
 
 .qr { aspect-ratio: 1; display: grid; place-items: center; border: 2px solid var(--ink);
   color: var(--ink-soft); font-family: var(--font-heading); }
+.qrImage { width: 100%; height: auto; display: block; }

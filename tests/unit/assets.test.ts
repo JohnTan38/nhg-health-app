@@ -13,4 +13,10 @@ describe('static assets', () => {
     expect(existsSync(path)).toBe(true);
     expect(statSync(path).size).toBeGreaterThan(1_000);
   });
+
+  it('ships the app-download QR code at the path the getting-started slide uses', () => {
+    const path = 'public/images/nhg-health-qr-code.png';
+    expect(existsSync(path)).toBe(true);
+    expect(statSync(path).size).toBeGreaterThan(1_000);
+  });
 });

@@ -100,4 +100,14 @@ describe('deck integrity', () => {
     if (meds?.body.kind !== 'steps') throw new Error('unreachable');
     expect(JSON.stringify(meds)).toContain('白色药丸');
   });
+
+  it('points the getting-started QR step at the real app-download QR photo', () => {
+    const started = SLIDES.find((s) => s.id === 'getting-started');
+    if (started?.body.kind !== 'steps') throw new Error('unreachable');
+    const qrStep = started.body.steps[0];
+    const qrLine = qrStep?.mock[0];
+    expect(qrLine?.kind).toBe('qr');
+    if (qrLine?.kind !== 'qr') throw new Error('unreachable');
+    expect(qrLine.src).toBe('/images/nhg-health-qr-code.png');
+  });
 });

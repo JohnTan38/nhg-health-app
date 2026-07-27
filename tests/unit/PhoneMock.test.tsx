@@ -41,4 +41,22 @@ describe('PhoneMock', () => {
     const { container } = render(<PhoneMock lines={[{ kind: 'qr' }]} />);
     expect(container.firstElementChild).toHaveAttribute('aria-hidden', 'true');
   });
+
+  it('falls back to the placeholder box when a qr line has no src', () => {
+    const { container } = render(<PhoneMock lines={[{ kind: 'qr' }]} />);
+    expect(screen.getByText('QR CODE')).toBeInTheDocument();
+    expect(container.querySelector('img')).toBeNull();
+  });
+
+  it('renders the real QR photo instead of the placeholder when src is supplied', () => {
+    const { container } = render(
+      <PhoneMock lines={[{ kind: 'qr', src: '/images/nhg-health-qr-code.png' }]} />,
+    );
+    expect(screen.queryByText('QR CODE')).toBeNull();
+    // Decorative (alt=""), so it has no accessible "img" role -- query the
+    // element directly rather than via getByRole.
+    const img = container.querySelector('img');
+    expect(img).not.toBeNull();
+    expect(img).toHaveAttribute('alt', '');
+  });
 });

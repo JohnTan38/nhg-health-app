@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import type { MockLine } from '@/content/types';
 import styles from './PhoneMock.module.css';
 
@@ -58,7 +59,14 @@ function Line({ line }: { line: MockLine }) {
     case 'big':
       return <span className={styles.big}>{line.label}</span>;
     case 'qr':
-      return <div className={styles.qr}>QR CODE</div>;
+      // The real QR photo already has its own border and background baked
+      // in (a photographed sticker), so it renders plainly rather than
+      // inside the placeholder's bordered box.
+      return line.src ? (
+        <Image src={line.src} alt="" width={848} height={892} className={styles.qrImage} />
+      ) : (
+        <div className={styles.qr}>QR CODE</div>
+      );
   }
 }
 

@@ -58,7 +58,7 @@ export const SLIDES: Slide[] = [
         {
           marker: '1',
           caption: 'Scan the QR code to download NHG Health from Google Play or the App Store.',
-          mock: [{ kind: 'qr' }],
+          mock: [{ kind: 'qr', src: '/images/nhg-health-qr-code.png' }],
         },
         {
           marker: '2',

@@ -9,7 +9,7 @@ export type MockLine =
   | { kind: 'itinerary'; items: string[]; doneCount?: number }
   | { kind: 'checkbox'; label: string }
   | { kind: 'big'; label: string }
-  | { kind: 'qr' };
+  | { kind: 'qr'; src?: string };
 
 export interface Step {
   /** '1'–'5' for numbered slides, 'A'–'C' for the lettered refill slide. */
