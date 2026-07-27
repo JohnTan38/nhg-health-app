@@ -66,6 +66,29 @@ describe('Deck', () => {
     expect(screen.getByRole('button', { name: /play slideshow/i })).toBeInTheDocument();
   });
 
+  // Space is the deck's "next slide" shortcut, but a button the user has
+  // deliberately tabbed to must keep its own press.
+  it('lets a focused control answer Space itself instead of paging the deck', async () => {
+    const user = userEvent.setup();
+    render(<Deck slides={SLIDES} />);
+    screen.getByRole('button', { name: /play slideshow/i }).focus();
+
+    await user.keyboard(' ');
+
+    expect(screen.getByRole('button', { name: /pause slideshow/i })).toBeInTheDocument();
+    expect(screen.getByText(`1 / ${SLIDES.length}`)).toBeInTheDocument();
+  });
+
+  it('still toggles play with the P key while a control has focus', async () => {
+    const user = userEvent.setup();
+    render(<Deck slides={SLIDES} />);
+    screen.getByRole('button', { name: /next slide/i }).focus();
+
+    await user.keyboard('p');
+
+    expect(screen.getByRole('button', { name: /pause slideshow/i })).toBeInTheDocument();
+  });
+
   it('jumps to the last slide with End and back with Home', async () => {
     const user = userEvent.setup();
     render(<Deck slides={SLIDES} />);

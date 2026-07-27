@@ -15,6 +15,12 @@ import styles from './Deck.module.css';
 
 const BREATH_MS = 1200;
 
+/** Typing here must never reach the deck's shortcuts. */
+const TEXT_ENTRY_TAGS = /^(INPUT|TEXTAREA|SELECT)$/;
+/** Controls that answer to Space or Enter on their own. */
+const SELF_ACTIVATING_TAGS = /^(BUTTON|A)$/;
+const NAV_KEYS = ['ArrowRight', 'ArrowLeft', ' ', 'PageDown', 'PageUp', 'Home', 'End'];
+
 export function Deck({ slides }: { slides: SlideData[] }) {
   const [index, setIndex] = useState(0);
   // Starts paused: a deck that talks or moves by itself is disruptive in a
@@ -92,20 +98,35 @@ export function Deck({ slides }: { slides: SlideData[] }) {
   useEffect(() => {
     const onKey = (e: KeyboardEvent): void => {
       // Never hijack typing in a form control.
-      const target = e.target as HTMLElement | null;
-      if (target && /^(INPUT|TEXTAREA|SELECT)$/.test(target.tagName)) return;
+      const tag = (e.target as HTMLElement | null)?.tagName ?? '';
+      if (TEXT_ENTRY_TAGS.test(tag)) return;
 
       const key = e.key.length === 1 ? e.key.toLowerCase() : e.key;
-      const handled = ['ArrowRight', 'ArrowLeft', ' ', 'PageDown', 'PageUp', 'Home', 'End', 'p', 'v'];
-      if (!handled.includes(key)) return;
+
+      // The deck-wide toggles stay available wherever focus sits: someone who
+      // just clicked Play should be able to press P again without tabbing away
+      // first, and no control claims a bare letter key for itself.
+      if (key === 'p' || key === 'v') {
+        e.preventDefault();
+        if (key === 'p') setPlaying((p) => !p);
+        else toggleVoice();
+        return;
+      }
+
+      if (!NAV_KEYS.includes(key)) return;
+
+      // Space is the one navigation key a focused button or link answers to
+      // itself. Swallowing it would page the deck instead of pressing the
+      // control the user had deliberately tabbed to, so let the control win.
+      // The rest (arrows, Page keys, Home/End) mean nothing to a button, so
+      // deck navigation still works from anywhere.
+      if (key === ' ' && SELF_ACTIVATING_TAGS.test(tag)) return;
       e.preventDefault();
 
       if (key === 'ArrowRight' || key === ' ' || key === 'PageDown') manualNext();
       else if (key === 'ArrowLeft' || key === 'PageUp') manualPrev();
       else if (key === 'Home') { pause(); goTo(0); }
       else if (key === 'End') { pause(); goTo(slides.length - 1); }
-      else if (key === 'p') setPlaying((p) => !p);
-      else if (key === 'v') toggleVoice();
     };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
